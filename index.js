@@ -15,3 +15,7 @@ const compoundInterest = (init_amount, monthly_contribution, number_of_years, in
 
     return total
 }
+
+const regularSaving = (init_amount, monthly_contribution, number_of_years) => {
+    return init_amount + monthly_contribution * 12 * number_of_years
+}
