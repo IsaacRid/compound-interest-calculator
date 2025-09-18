@@ -1,7 +1,3 @@
-let init_amount = 20000
-let monthly_contribution = 400
-let number_of_years = 30
-let interest_rate = 10
 
 const compoundInterest = (init_amount, monthly_contribution, number_of_years, interest_rate) => {
     let total = init_amount
@@ -20,6 +16,12 @@ const regularSaving = (init_amount, monthly_contribution, number_of_years) => {
     return (init_amount + monthly_contribution * 12 * number_of_years).toFixed(2)
 }
 
+function run() {
+    let init_amount = prompt("What is your initial investment? : ")
+    let monthly_contribution = prompt("What is your monthly contribution? : ")
+    let number_of_years = prompt("How many years will you invest for? : ")
+    let interest_rate = prompt("What is your interest rate? : ")
+}
 
 const printOutput = (init_amount, monthly_contribution, number_of_years, interest_rate) => {
     let final_value = compoundInterest(init_amount, monthly_contribution, number_of_years, interest_rate)
