@@ -13,9 +13,9 @@ const compoundInterest = (init_amount, monthly_contribution, number_of_years, in
         total = total * (100 + interest_rate / 100)
     }
 
-    return total
+    return total.toFixed(2)
 }
 
 const regularSaving = (init_amount, monthly_contribution, number_of_years) => {
-    return init_amount + monthly_contribution * 12 * number_of_years
+    return (init_amount + monthly_contribution * 12 * number_of_years).toFixed(2)
 }
