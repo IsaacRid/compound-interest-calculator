@@ -1,4 +1,4 @@
-
+const prompt = require("prompt-sync")()
 const compoundInterest = (init_amount, monthly_contribution, number_of_years, interest_rate) => {
     let total = init_amount
 
@@ -6,7 +6,7 @@ const compoundInterest = (init_amount, monthly_contribution, number_of_years, in
 
     for (let i = 0; i < number_of_years; i++) {
         total = total + annual_contribtuion
-        total = total * (100 + interest_rate / 100)
+        total = total * ((100 + interest_rate) / 100)
     }
 
     return total.toFixed(2)
@@ -17,11 +17,13 @@ const regularSaving = (init_amount, monthly_contribution, number_of_years) => {
 }
 
 function run() {
-    let init_amount = prompt("What is your initial investment? : ")
-    let monthly_contribution = prompt("What is your monthly contribution? : ")
-    let number_of_years = prompt("How many years will you invest for? : ")
-    let interest_rate = prompt("What is your interest rate? : ")
+    let init_amount = parseFloat(prompt("What is your initial investment? : £"))
+    let monthly_contribution = parseFloat(prompt("What is your monthly contribution? : £"))
+    let number_of_years = parseFloat(prompt("How many years will you invest for? : "))
+    let interest_rate = parseFloat(prompt("What is your expected interest rate over the years (%)? : "))
+    printOutput(init_amount, monthly_contribution, number_of_years, interest_rate)
 }
+
 
 const printOutput = (init_amount, monthly_contribution, number_of_years, interest_rate) => {
     let final_value = compoundInterest(init_amount, monthly_contribution, number_of_years, interest_rate)
@@ -32,3 +34,5 @@ const printOutput = (init_amount, monthly_contribution, number_of_years, interes
     VALUE_DIFFERENCE: £${final_value - value_without_compounding}`
     console.log(summary)
 }
+
+run()
